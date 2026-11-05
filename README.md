@@ -34,9 +34,9 @@ credentials at uni, and why enterprise networks are so much harder to disrupt.
 Internet
    │  1 public IP (often shared via CGNAT)
 ┌──┴───────────────────────────┐
-│   HOME ROUTER (all-in-one)    │
-│   router + firewall + NAT     │
-│   + DHCP + switch + Wi-Fi AP  │
+│   HOME ROUTER (all-in-one)   │
+│   router + firewall + NAT    │
+│   + DHCP + switch + Wi-Fi AP │
 └──┬───────────────────────────┘
    │  private subnet 192.168.1.0/24
    ├─ Laptop  192.168.1.10
@@ -50,14 +50,14 @@ Internet
 Internet
    │  a BLOCK of public IPs (e.g. a /28 or larger)
 ┌──┴──────────────┐
-│  EDGE FIREWALL   │  NAT, filtering, IDS/IPS, logging
+│  EDGE FIREWALL  │  NAT, filtering, IDS/IPS, logging
 └──┬──────────────┘
 ┌──┴──────────────┐
-│   CORE ROUTER    │  routes between internal subnets
+│   CORE ROUTER   │  routes between internal subnets
 └──┬──────────────┘
 ┌──┴──────────────┐
-│ DISTRIBUTION /   │  Layer-3 switches, VLANs
-│ ACCESS SWITCHES  │
+│ DISTRIBUTION /  │  Layer-3 switches, VLANs
+│ ACCESS SWITCHES │
 └──┬──────────────┘
    ├────────────┬────────────┐
 ┌──┴──┐      ┌──┴──┐      ┌──┴──┐
@@ -70,16 +70,16 @@ Internet
 
 ## Side-by-side comparison
 
-| Aspect           | Home                         | University / Enterprise                        |
-|------------------|------------------------------|------------------------------------------------|
+| Aspect           | Home                         | University / Enterprise                         |
+|------------------|------------------------------|-------------------------------------------------|
 | Hardware         | 1 all-in-one router          | Firewall + router + switches + APs + controller |
-| Public IPv4      | 1 (often CGNAT)              | A block / pool                                 |
-| Private range    | `192.168.x.0/24` (one subnet)| `10.x.x.x` (many VLANs)                        |
-| Access points    | Built into the router        | Many "thin" APs run by a controller            |
-| Login            | 1 shared Wi-Fi password      | Per-user 802.1X credentials (RADIUS)           |
-| Segmentation     | None — flat network          | Heavy — VLAN isolation between groups          |
-| Device visibility| You can see other devices    | Usually isolated — few/no peers visible        |
-| Monitoring       | None                         | Firewall logs + wireless IDS/IPS (WIPS)        |
+| Public IPv4      | 1 (often CGNAT)              | A block / pool                                  |
+| Private range    | `192.168.x.0/24` (one subnet)| `10.x.x.x` (many VLANs)                         |
+| Access points    | Built into the router        | Many "thin" APs run by a controller             |
+| Login            | 1 shared Wi-Fi password      | Per-user 802.1X credentials (RADIUS)            |
+| Segmentation     | None — flat network          | Heavy — VLAN isolation between groups           |
+| Device visibility| You can see other devices    | Usually isolated — few/no peers visible         |
+| Monitoring       | None                         | Firewall logs + wireless IDS/IPS (WIPS)         |
 
 ---
 
